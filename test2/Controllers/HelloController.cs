@@ -8,9 +8,14 @@ namespace test2.Controllers
 {
     public class HelloController : Controller
     {
-        public IActionResult Index()
+        public String Index()
         {
-            return View();
+            return "hello";
+        }
+
+        public String Mindex(String name, int times=10)
+        {
+            return $"byebye {name}";
         }
     }
 }

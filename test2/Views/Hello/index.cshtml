@@ -1,0 +1,27 @@
+@model testDot.Models.Card
+
+<h1>@Model.PageTitle</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Model.ColumnTitleCardName</th>
+            <th>@Model.ColumnTitleCategoryDesc</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.categories) {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>
+                <a  asp-controller="Overview" 
+                    asp-action="GetProductsByCategoryId" 
+                    asp-route-categoryId="@item.Id">
+                    @Model.LinkTitle
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
